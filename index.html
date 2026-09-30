@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <div class="app-container">
+
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+
+                <div class="branding">
+                    <h1 id="game-title">Tic Tac Toe</h1>
+                    <p id="game-subtitle">
+                        Challenge your friends or test your skills against AI.
+                    </p>
+                </div>
+
+                <div class="header-controls">
+                    <button
+                        id="theme-toggle"
+                        class="control-btn"
+                        type="button"
+                        aria-label="Toggle theme"
+                    >
+                        Theme
+                    </button>
+
+                    <button
+                        id="sound-toggle"
+                        class="control-btn"
+                        type="button"
+                        aria-label="Toggle sound"
+                    >
+                        Sound
+                    </button>
+                </div>
+
+            </div>
+        </header>
+
+        <main>
+
+            <!-- Setup Section -->
+            <section
+                id="game-setup"
+                class="setup-section"
+            >
+                <h2>Game Setup</h2>
+
+                <!-- Game Mode -->
+                <div class="setup-group">
+                    <h3>Game Mode</h3>
+
+                    <div
+                        class="button-group"
+                        role="group"
+                        aria-label="Game mode selection"
+                    >
+                        <button
+                            id="pvp-mode-btn"
+                            class="mode-btn active"
+                            type="button"
+                        >
+                            Player vs Player
+                        </button>
+
+                        <button
+                            id="ai-mode-btn"
+                            class="mode-btn"
+                            type="button"
+                        >
+                            Player vs AI
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Difficulty -->
+                <div class="setup-group">
+                    <h3>AI Difficulty</h3>
+
+                    <div
+                        class="button-group"
+                        role="group"
+                        aria-label="AI difficulty selection"
+                    >
+                        <button
+                            id="easy-btn"
+                            class="difficulty-btn active"
+                            type="button"
+                        >
+                            Easy
+                        </button>
+
+                        <button
+                            id="medium-btn"
+                            class="difficulty-btn"
+                            type="button"
+                        >
+                            Medium
+                        </button>
+
+                        <button
+                            id="impossible-btn"
+                            class="difficulty-btn"
+                            type="button"
+                        >
+                            Impossible
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Symbol Selection -->
+                <div class="setup-group">
+                    <h3>Select Symbol</h3>
+
+                    <div
+                        class="button-group"
+                        role="group"
+                        aria-label="Symbol selection"
+                    >
+                        <button
+                            id="symbol-x-btn"
+                            class="symbol-btn active"
+                            type="button"
+                        >
+                            X
+                        </button>
+
+                        <button
+                            id="symbol-o-btn"
+                            class="symbol-btn"
+                            type="button"
+                        >
+                            O
+                        </button>
+                    </div>
+                </div>
+
+                <div class="setup-actions">
+                    <button
+                        id="start-game-btn"
+                        class="primary-btn"
+                        type="button"
+                    >
+                        Start Game
+                    </button>
+                </div>
+            </section>
+
+            <!-- Game Section -->
+            <section
+                id="game-section"
+                class="game-section"
+            >
+                <h2>Game Board</h2>
+
+                <div
+                    id="turn-indicator"
+                    class="turn-indicator"
+                    aria-live="polite"
+                >
+                    X's Turn
+                </div>
+
+                <div
+                    id="game-board"
+                    class="game-board"
+                    role="grid"
+                    aria-label="Tic Tac Toe board"
+                >
+                    <button class="cell" id="cell-0" aria-label="Cell 1"></button>
+                    <button class="cell" id="cell-1" aria-label="Cell 2"></button>
+                    <button class="cell" id="cell-2" aria-label="Cell 3"></button>
+
+                    <button class="cell" id="cell-3" aria-label="Cell 4"></button>
+                    <button class="cell" id="cell-4" aria-label="Cell 5"></button>
+                    <button class="cell" id="cell-5" aria-label="Cell 6"></button>
+
+                    <button class="cell" id="cell-6" aria-label="Cell 7"></button>
+                    <button class="cell" id="cell-7" aria-label="Cell 8"></button>
+                    <button class="cell" id="cell-8" aria-label="Cell 9"></button>
+                </div>
+
+                <div class="game-controls">
+                    <button
+                        id="restart-btn"
+                        class="secondary-btn"
+                        type="button"
+                    >
+                        Restart
+                    </button>
+
+                    <button
+                        id="new-game-btn"
+                        class="secondary-btn"
+                        type="button"
+                    >
+                        New Game
+                    </button>
+                </div>
+            </section>
+
+            <!-- Scoreboard -->
+            <section
+                id="scoreboard"
+                class="scoreboard-section"
+            >
+                <h2>Scoreboard</h2>
+
+                <div class="scoreboard-grid">
+
+                    <article class="score-card">
+                        <h3>X Wins</h3>
+                        <p id="x-score">0</p>
+                    </article>
+
+                    <article class="score-card">
+                        <h3>Draws</h3>
+                        <p id="draw-score">0</p>
+                    </article>
+
+                    <article class="score-card">
+                        <h3>O Wins</h3>
+                        <p id="o-score">0</p>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- Statistics -->
+            <section
+                id="statistics-section"
+                class="statistics-section"
+            >
+                <h2>Statistics</h2>
+
+                <div class="statistics-grid">
+
+                    <article class="stat-card">
+                        <h3>Games Played</h3>
+                        <p id="games-played">0</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <h3>Wins</h3>
+                        <p id="total-wins">0</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <h3>Losses</h3>
+                        <p id="total-losses">0</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <h3>Draws</h3>
+                        <p id="total-draws">0</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <h3>Win Rate</h3>
+                        <p id="win-rate">0%</p>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- History -->
+            <section
+                id="history-section"
+                class="history-section"
+            >
+                <h2>Game History</h2>
+
+                <ul
+                    id="game-history-list"
+                    class="history-list"
+                    aria-label="Game history"
+                >
+                </ul>
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- Result Modal -->
+    <dialog
+        id="result-modal"
+        class="result-modal"
+        aria-labelledby="result-title"
+    >
+        <div class="modal-content">
+
+            <button
+                id="close-modal-btn"
+                class="close-btn"
+                type="button"
+                aria-label="Close dialog"
+            >
+                ×
+            </button>
+
+            <h2 id="result-title">Game Result</h2>
+
+            <p id="result-message">
+                Result message appears here.
+            </p>
+
+            <div class="modal-actions">
+
+                <button
+                    id="play-again-btn"
+                    class="primary-btn"
+                    type="button"
+                >
+                    Play Again
+                </button>
+
+                <button
+                    id="modal-new-game-btn"
+                    class="secondary-btn"
+                    type="button"
+                >
+                    New Game
+                </button>
+
+            </div>
+
+        </div>
+    </dialog>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
